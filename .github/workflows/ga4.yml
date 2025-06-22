@@ -1,0 +1,27 @@
+name: ga4.yml
+
+on: 
+  schedule:
+    - cron: "45 11 * * *"
+  workflow_dispatch:
+
+jobs: 
+  commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Do nothing
+        run: echo "NOTHING" > nothing.txt
+          
+      - name: Commit and push changes - 23f3003060@ds.study.iitm.ac.in
+        run: |
+          git config --local user.email "elon@tesla.com"
+          git config --local user.name "Elon Musk"
+          git add nothing.txt
+          git commit -m "Empty Commit" || exit 0
+          git push
