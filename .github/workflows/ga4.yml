@@ -2,7 +2,7 @@ name: ga4.yml
 
 on: 
   schedule:
-    - cron: "45 11 * * *"
+    - cron: "47 11 * * *"
   workflow_dispatch:
 
 jobs: 
